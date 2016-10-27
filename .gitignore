@@ -1,0 +1,26 @@
+# Editor temporary files
+#
+*~
+\#*\#
+.\#*
+*.swp
+*.swo
+
+
+# Other common temporary files
+#
+*.bak
+*.old
+*.orig
+*.rbc
+
+
+# Bundler artifacts
+#
+**/.bundle
+**/vendor/bundle
+
+
+# RubyGems-related artifacts
+#
+*.gem

@@ -1,0 +1,27 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.4.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    hashdiff (0.3.0)
+    minitest (5.9.1)
+    rake (11.3.0)
+    ruby-progressbar (1.8.1)
+    safe_yaml (1.0.4)
+    webmock (2.1.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest
+  rake
+  ruby-progressbar
+  webmock
+
+BUNDLED WITH
+   1.12.3
