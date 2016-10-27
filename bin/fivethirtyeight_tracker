@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+
+require_relative "../lib/fivethirtyeight_tracker"
+
+def shutdown(signal)
+  puts
+  exit
+end
+
+Signal.trap("INT") {
+  shutdown("INT")
+}
+
+Signal.trap("TERM") {
+  shutdown("TERM")
+}
+
+DEFAULT_TRACKER_PERIOD = 600
+tracker_period = (ARGV.shift || DEFAULT_TRACKER_PERIOD).to_f
+
+tracker = FiveThirtyEight::Tracker.new
+begin
+  tracker.update
+  sleep tracker_period
+end while true
