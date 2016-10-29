@@ -1,0 +1,25 @@
+[
+  {
+    "state": "US",
+    "latest": {
+      "D": {
+        "party": "D",
+        "candidate": "Clinton",
+        "models": {
+          "polls": {
+            "winprob": 80.000
+          }
+        }
+      },
+      "R": {
+        "party": "R",
+        "candidate": "Trump",
+        "models": {
+          "polls": {
+            "winprob": 20.000
+          }
+        }
+      }
+    }
+  }
+]
