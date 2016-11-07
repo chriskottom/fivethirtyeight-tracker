@@ -4,6 +4,7 @@ require "uri"
 
 module FiveThirtyEight
   class APIResponseError < StandardError; end
+  class APITimeout < APIResponseError; end
 
   class Feed
     SUMMARY_PATH = "http://projects.fivethirtyeight.com/2016-election-forecast/summary.json"
@@ -31,6 +32,8 @@ module FiveThirtyEight
       uri = URI(SUMMARY_PATH)
       response = Net::HTTP.get_response(uri)
       response.body ? JSON.parse(response.body) : nil
+    rescue Timeout::Error => e
+      raise APITimeout, e.message
     end
 
     def party_results(results)
