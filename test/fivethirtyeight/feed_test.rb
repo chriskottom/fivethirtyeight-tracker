@@ -34,4 +34,16 @@ describe FiveThirtyEight::Feed do
       end
     end
   end
+
+  describe "when the request times out" do
+    before do
+      stub_summary_timeout
+    end
+
+    it "raises an APITimeout" do
+      assert_raises(FiveThirtyEight::APITimeout) do
+        feed.current_forecast
+      end
+    end
+  end
 end
