@@ -10,6 +10,7 @@ module FiveThirtyEight
 
     def current_forecast
       json_data = fetch_feed_data
+      raise APIResponseError unless json_data
       national_results = json_data.find { |item| item['state'] == 'US' }
       if !national_results
         raise APIResponseError, "No national results present in API response"
@@ -29,7 +30,7 @@ module FiveThirtyEight
     def fetch_feed_data
       uri = URI(SUMMARY_PATH)
       response = Net::HTTP.get_response(uri)
-      JSON.parse(response.body)
+      response.body ? JSON.parse(response.body) : nil
     end
 
     def party_results(results)
