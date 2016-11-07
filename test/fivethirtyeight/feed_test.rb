@@ -22,4 +22,16 @@ describe FiveThirtyEight::Feed do
       expect(forecast.dig(:R, :probability)).must_equal 20.0
     end
   end
+
+  describe "when the response has no body string" do
+    before do
+      stub_summary_request(status: 404, response_body: '')
+    end
+
+    it "raises an APIResponseError" do
+      assert_raises(FiveThirtyEight::APIResponseError) do
+        feed.current_forecast
+      end
+    end
+  end
 end
