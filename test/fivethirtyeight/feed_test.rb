@@ -7,12 +7,12 @@ describe FiveThirtyEight::Feed do
 
   describe "when the API delivers a successful response" do
     before do
-      @stub_api = stub_summary_request
+      @api_stub = stub_summary_request
     end
 
     it "requests data from the API" do
       feed.current_forecast
-      assert_requested @stub_api
+      assert_requested @api_stub
     end
 
     it "delivers a simplified result set from the complete feed" do
